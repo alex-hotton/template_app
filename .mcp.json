@@ -1,0 +1,64 @@
+{
+  "name": "template-app",
+  "version": "1.0.0",
+  "description": "MCP configuration for React + Supabase template application",
+  "servers": {
+    "supabase": {
+      "command": "npx",
+      "args": ["supabase", "start"],
+      "env": {
+        "SUPABASE_ACCESS_TOKEN": "${SUPABASE_ACCESS_TOKEN}"
+      }
+    },
+    "dev": {
+      "command": "npm",
+      "args": ["run", "dev"],
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  },
+  "tools": {
+    "database": {
+      "description": "Supabase database operations",
+      "commands": {
+        "migrate": "npx supabase db push",
+        "reset": "npx supabase db reset",
+        "seed": "npx supabase db seed"
+      }
+    },
+    "functions": {
+      "description": "Supabase Edge Functions",
+      "commands": {
+        "serve": "npx supabase functions serve",
+        "deploy": "npx supabase functions deploy"
+      }
+    },
+    "auth": {
+      "description": "Authentication utilities",
+      "commands": {
+        "users": "npx supabase users list"
+      }
+    }
+  },
+  "resources": {
+    "database_url": "${SUPABASE_DB_URL}",
+    "api_url": "${VITE_SUPABASE_URL}",
+    "storage_url": "${VITE_SUPABASE_URL}/storage/v1"
+  },
+  "prompts": {
+    "component": "Create a new React component with TypeScript and shadcn/ui styling",
+    "hook": "Create a custom React hook with proper TypeScript types",
+    "api": "Create a new Supabase API function with error handling",
+    "migration": "Create a new Supabase migration file",
+    "page": "Create a new page component with routing"
+  },
+  "context": {
+    "project_type": "React + Supabase SPA",
+    "styling": "Tailwind CSS + shadcn/ui",
+    "state_management": "TanStack Query",
+    "authentication": "Supabase Auth",
+    "database": "PostgreSQL via Supabase",
+    "deployment": "Vercel/Netlify compatible"
+  }
+}
